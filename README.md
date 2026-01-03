@@ -1,4 +1,4 @@
-# 🧠 CPU Pipeline Simulator
+# CPU Pipeline Simulator
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Architecture](https://img.shields.io/badge/Computer%20Architecture-Pipeline%20Simulation-green)
 ![Status](https://img.shields.io/badge/Status-Complete-success)
@@ -106,7 +106,7 @@ Together, these visualizations demonstrate how **microarchitectural hazards tran
 
 ---
 
-## 🧪 Example Execution Trace
+## Example Execution Trace
 
 ```
 Cycle | IF               | ID               | EX               | MEM              | WB
@@ -119,7 +119,7 @@ Cycle | IF               | ID               | EX               | MEM            
 
 ---
 
-## 💡 Skills Demonstrated
+## Skills Demonstrated
 
 ### Computer Architecture & Microarchitecture
 - Design and modeling of a **5-stage in-order CPU pipeline (IF/ID/EX/MEM/WB)**
@@ -163,20 +163,6 @@ cpu-pipeline-sim/
 ├── program_data.csv    # Exported per-cycle trace
 └── README.md
 ```
-
----
-
-## ▶️ Running the Simulator
-
-```
-python main.py
-```
-
-- Supports hardcoded or user-entered programs
-- Automatically generates:
-  - Console performance summary
-  - CSV pipeline trace
-  - Performance plots
 
 ---
 
