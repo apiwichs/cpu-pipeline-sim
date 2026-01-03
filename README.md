@@ -176,6 +176,12 @@ cpu-pipeline-sim/
 
 ---
 
-## 📜 License
+## License & Usage Notice
 
-MIT License
+© Apiwich Sumeksri. All rights reserved.
+
+All code, documentation, and related materials in this repository are protected by copyright law.  
+No part of this repository may be used, copied, modified, or distributed without explicit written permission from the author.
+
+For inquiries regarding permitted use, please contact the author prior to use.
+
