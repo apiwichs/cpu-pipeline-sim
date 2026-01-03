@@ -115,8 +115,17 @@ Cycle | IF               | ID               | EX               | MEM            
 2     | ADD x4<-x1,x5    | ADD x1<-x2,x3    | ----             | ----             | ----
 3     | ADD x8<-x6,x7    | ADD x4<-x1,x5    | ADD x1<-x2,x3    | ----             | ----
 4     | (stall)          | ADD x4<-x1,x5    | ----             | ADD x1<-x2,x3    | ----
+5     | (stall)          | ADD x4<-x1,x5    | ----             | ----             | ADD x1<-x2,x3
+6     | SUB x9<-x1,x8    | ADD x8<-x6,x7    | ADD x4<-x1,x5    | ----             | ----
+7     | ----             | SUB x9<-x1,x8    | ADD x8<-x6,x7    | ADD x4<-x1,x5    | ----
+8     | ----             | SUB x9<-x1,x8    | ----             | ADD x8<-x6,x7    | ADD x4<-x1,x5
+9     | ----             | SUB x9<-x1,x8    | ----             | ----             | ADD x8<-x6,x7
+10    | ----             | ----             | SUB x9<-x1,x8    | ----             | ----
+11    | ----             | ----             | ----             | SUB x9<-x1,x8    | ----
+12    | ----             | ----             | ----             | ----             | SUB x9<-x1,x8
+13    | ----             | ----             | ----             | ----             | ----
+14    | ----             | ----             | ----             | ----             | ----
 ```
-
 ---
 
 ## 💡 Skills Demonstrated
@@ -137,13 +146,7 @@ Cycle | IF               | ID               | EX               | MEM            
 - Trace-driven performance evaluation using **per-cycle pipeline state**
 - Computation of CPI, stall rate, retirement rate, and pipeline utilization
 - Analysis of how microarchitectural behavior impacts performance
-
-### Software Engineering (Python)
-- Modular project structure with clean separation of concerns
-- Use of **classes and data models** to represent instructions
-- Finite-state, cycle-driven simulation design
-- Clean interfaces between simulation, analysis, and visualization layers
-
+  
 ### Data Analysis & Visualization
 - Structured analysis using **Pandas**
 - Numerical aggregation with **NumPy**
