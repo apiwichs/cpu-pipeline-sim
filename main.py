@@ -7,6 +7,8 @@ from user_input import get_user_input
 
 def main():
     
+    plt.style.use("seaborn-v0_8-whitegrid")
+    
     ## Uncomment this block for hardcoded Instructions
     program = [
         Instruction(instruction="ADD", src_regs=("x2","x3"), dst_reg="x1"),
@@ -74,21 +76,57 @@ def main():
     print(f"Average occupancy: {avg_occupancy:.2f}")
     
     ## Plotting data
-    plt.figure()
-    plt.plot(data_df["cycle"], data_df["occupancy"])
-    plt.xlabel("Cycle")
-    plt.ylabel("Pipeline occupancy (# non-empty stages)")
-    plt.title("Pipeline Occupancy vs Cycle")
-    plt.savefig("images/pipeline_occupancy.png", dpi=150, bbox_inches="tight")
+    plt.figure(figsize=(8, 4))
+
+    plt.plot(
+        data_df["cycle"],
+        data_df["occupancy"],
+        marker="o",
+        linewidth=2,
+        label="Pipeline Occupancy"
+    )
+    stall_cycles = data_df.loc[data_df["stall"], "cycle"]
+    for c in stall_cycles:
+        plt.axvline(c, color="red", alpha=0.5) ## Set transparency to 0.5
+ 
+    # Dummy handle for stall legend entry
+    plt.plot([], [], color="red", alpha=0.6, linewidth=4, label="Stall cycle")
+
+    plt.xlabel("Cycle", fontsize=11)
+    plt.ylabel("Active Pipeline Stages", fontsize=11)
+    plt.title("Pipeline Occupancy vs Cycle", fontsize=13)
+
+    plt.ylim(0, 5)
+    plt.xticks(data_df["cycle"])
+
+    plt.legend(loc="upper right")
+    plt.tight_layout()
+    plt.savefig("images/pipeline_occupancy.png", dpi=200)
     plt.show()
 
-    plt.figure()
-    plt.plot(data_df["cycle"], data_df["stall"].astype(int))
+
+
+    # Plot Stall Cycles  
+    plt.figure(figsize=(8, 2.5))
+
+    plt.step(
+        data_df["cycle"],
+        data_df["stall"].astype(int),
+        where="post",
+        linewidth=2
+    )
+
+    plt.yticks([0, 1], ["No Stall", "Stall"])
+    plt.ylim(-0.01, 1.01)     
+    plt.grid(axis="x", alpha=0.3)
+
     plt.xlabel("Cycle")
-    plt.ylabel("Stall (0/1)")
-    plt.title("Stall Cycles")
-    plt.savefig("images/stall_cycles.png", dpi=150, bbox_inches="tight")
+    plt.title("Pipeline Stall Cycles")
+
+    plt.tight_layout()
+    plt.savefig("images/stall_cycles.png", dpi=200)
     plt.show()
+
 
 if __name__ == "__main__":
     main()

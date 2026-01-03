@@ -4,7 +4,7 @@ def pipeline(program):
     program is a list of Instructions object
     None is garbage values 
     """
-    print("pipeline() started")
+    print("===== Pipeline Simualation =====")
     cycle = 0
     stall_count = 0
     stall_flag = False
