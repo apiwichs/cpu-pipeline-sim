@@ -119,7 +119,7 @@ Cycle | IF               | ID               | EX               | MEM            
 
 ---
 
-## Skills Demonstrated
+## 💡 Skills Demonstrated
 
 ### Computer Architecture & Microarchitecture
 - Design and modeling of a **5-stage in-order CPU pipeline (IF/ID/EX/MEM/WB)**
